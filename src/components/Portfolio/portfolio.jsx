@@ -12,7 +12,7 @@ function Portfolio() {
         <div class="cards-list">
 
             <div class="card1 11">
-                <div class="card_image"> <img src={ImgSet9p4} /> </div>
+                <div class="card_image"> <img src={ImgSet9p4} alt='kitchens' /> </div>
                 <div class="card_title title-white">
                     <p>Kitchens</p>
                 </div>
@@ -20,7 +20,7 @@ function Portfolio() {
 
             <div class="card1 22">
                 <div class="card_image">
-                    <img src={ImgSet15} />
+                    <img src={ImgSet15} alt='bathrooms' />
                 </div>
                 <div class="card_title title-white">
                     <p>Bathroom Vanities</p>
@@ -29,7 +29,7 @@ function Portfolio() {
 
             <div class="card1 33">
                 <div class="card_image">
-                    <img src={ImgSet6p1} />
+                    <img src={ImgSet6p1} alt='built ins' />
                 </div>
                 <div class="card_title">
                     <p>Built-ins</p>
@@ -38,7 +38,7 @@ function Portfolio() {
 
             <div class="card1 44">
                 <div class="card_image">
-                    <img src={ImgSet4} />
+                    <img src={ImgSet4} alt='furniture' />
                 </div>
                 <div class="card_title title-black">
                     <p>Furniture</p>
@@ -46,7 +46,7 @@ function Portfolio() {
             </div>
             <div class="card1 55">
                 <div class="card_image">
-                    <img src={ImgSet1p2} />
+                    <img src={ImgSet1p2} alt='Wall Coverings' />
                 </div>
                 <div class="card_title title-black">
                     <p>Wall Coverings</p>
@@ -54,7 +54,7 @@ function Portfolio() {
             </div>
             <div class="card1 55">
                 <div class="card_image">
-                    <img src={ImgSet17} />
+                    <img src={ImgSet17} alt='Wood Turning' />
                 </div>
                 <div class="card_title title-black">
                     <p>Wood Turning</p>
