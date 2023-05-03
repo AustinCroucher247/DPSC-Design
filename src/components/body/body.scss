@@ -20,6 +20,8 @@
 
     &--image {
         width: 90%;
+        height: 280px;
+        width: 90%;
 
         &--container {
             display: flex;
@@ -37,15 +39,15 @@
 
     &--img {
         padding: .3rem;
-        height: 150px;
-        width: 150px;
+        height: 101px;
+        width: 90%;
     }
 }
 
 .arrows {
     width: 10%;
     height: 10%;
-    padding-bottom: 5rem;
+    padding-bottom: 3rem;
 }
 
 .card1,

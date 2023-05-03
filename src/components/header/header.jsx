@@ -1,11 +1,13 @@
 import './header.scss'
 import Tree from '../../assets/PineTree.png'
+import Logo from '../../assets/logo.png'
 
 function Header() {
     return (
         <div className='header'>
             <div className='header--container'>
-                <p className='header--title'>Croucher Woodshop</p>
+                <img className='logo' src={Logo} alt="" />
+                {/* <p className='header--title'>Croucher Woodshop</p> */}
             </div>
             <section className='nav'>
                 <div className='nav--container'>
@@ -21,16 +23,7 @@ function Header() {
                                 Contact
                             </li>
                             <li>
-                                Services
-                            </li>
-                            <li>
-                                Shop
-                            </li>
-                            <li>
-                                Book Online
-                            </li>
-                            <li>
-                                Gallery
+                                Portfolio
                             </li>
                         </ul>
                     </nav>

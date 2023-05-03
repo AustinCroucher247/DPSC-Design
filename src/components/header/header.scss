@@ -12,6 +12,8 @@
         margin: 0 auto;
         font-family: raleway;
         font-weight: 500;
+        display: flex;
+        justify-content: center;
         // background-image: url('../../assets/trees.png');
         // background-repeat: no-repeat;
         // background-size: cover;
@@ -47,4 +49,9 @@
 
 li {
     list-style-type: none;
+}
+
+.logo {
+    width: 80%;
+    margin: 0 auto;
 }
