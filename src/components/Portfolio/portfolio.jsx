@@ -11,14 +11,14 @@ function Portfolio() {
     return (
         <div class="cards-list">
 
-            <div class="card1 11">
+            <div class="card10 11">
                 <div class="card_image"> <img src={ImgSet9p4} alt='kitchens' /> </div>
                 <div class="card_title title-white">
                     <p>Kitchens</p>
                 </div>
             </div>
 
-            <div class="card1 22">
+            <div class="card10 22">
                 <div class="card_image">
                     <img src={ImgSet15} alt='bathrooms' />
                 </div>
@@ -27,7 +27,7 @@ function Portfolio() {
                 </div>
             </div>
 
-            <div class="card1 33">
+            <div class="card10 33">
                 <div class="card_image">
                     <img src={ImgSet6p1} alt='built ins' />
                 </div>
@@ -36,7 +36,7 @@ function Portfolio() {
                 </div>
             </div>
 
-            <div class="card1 44">
+            <div class="card10 44">
                 <div class="card_image">
                     <img src={ImgSet4} alt='furniture' />
                 </div>
@@ -44,7 +44,7 @@ function Portfolio() {
                     <p>Furniture</p>
                 </div>
             </div>
-            <div class="card1 55">
+            <div class="card10 55">
                 <div class="card_image">
                     <img src={ImgSet1p2} alt='Wall Coverings' />
                 </div>
@@ -52,7 +52,7 @@ function Portfolio() {
                     <p>Wall Coverings</p>
                 </div>
             </div>
-            <div class="card1 55">
+            <div class="card10 55">
                 <div class="card_image">
                     <img src={ImgSet17} alt='Wood Turning' />
                 </div>

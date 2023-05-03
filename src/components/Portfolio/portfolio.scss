@@ -1,12 +1,13 @@
 .cards-list {
     z-index: 0;
-    width: 100%;
+    width: 80%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
-.card1 {
+.card10 {
     margin: 30px auto;
     width: 125px;
     height: 125px;
@@ -15,30 +16,30 @@
     transition: 0.4s;
 }
 
-.card1 .card_image {
+.card10 .card_image {
     width: inherit;
     height: inherit;
     border-radius: 4px;
 }
 
-.card1 .card_image img {
+.card10 .card_image img {
     width: inherit;
     height: inherit;
     border-radius: 10px;
     object-fit: cover;
 }
 
-.card1 .card_title {
+.card10 .card_title {
     text-align: center;
     border-radius: 0px 0px 40px 40px;
     font-family: raleway;
     font-weight: 200;
     font-size: 30px;
-    margin-top: -80px;
+    margin-top: -110px;
     height: 40px;
 }
 
-.card1:hover {
+.card10:hover {
     transform: scale(0.9, 0.9);
     box-shadow: 5px 5px 30px 15px rgba(0, 0, 0, 0.25),
         -5px -5px 30px 15px rgba(0, 0, 0, 0.22);
