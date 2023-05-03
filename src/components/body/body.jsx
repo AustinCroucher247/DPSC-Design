@@ -80,7 +80,7 @@ function Body() {
     const imagesCarousel = [
         { src: ImgSet9p4, alt: "", title: "Kitchens" },
         { src: ImgSet15, alt: "", title: "Bathroom Vanities" },
-        { src: ImgSet6, alt: "", title: "Built-ins" },
+        { src: ImgSet6p1, alt: "", title: "Built-ins" },
         { src: ImgSet4, alt: "", title: "Furniture" },
         { src: ImgSet1p2, alt: "", title: "Wall Coverings" },
         { src: ImgSet17, alt: "", title: "Wood Turning" },
