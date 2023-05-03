@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './body.scss';
 import Carousel from "../Carousel/carousel";
+import Footer from '../footer/footer';
 
 
 
@@ -100,8 +101,8 @@ function Body() {
                 <Carousel images={imagesCarousel} />
             </section>
             <section className='history'>
-
             </section>
+            <Footer />
         </div>
     );
 }

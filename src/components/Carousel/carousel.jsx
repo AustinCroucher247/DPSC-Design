@@ -7,12 +7,16 @@ const Carousel = ({ images }) => {
     const handleLeftClick = () => {
         if (startIndex > 0) {
             setStartIndex(startIndex - 1);
+        } else {
+            setStartIndex(images.length - 2);
         }
     };
 
     const handleRightClick = () => {
         if (startIndex < images.length - 2) {
-            setStartIndex(startIndex + 1);
+            setStartIndex(startIndex + 2);
+        } else {
+            setStartIndex(0);
         }
     };
 
