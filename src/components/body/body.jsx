@@ -79,12 +79,12 @@ function Body() {
 
 
     const imagesCarousel = [
-        { src: ImgSet9p4, alt: "", title: "Kitchens" },
-        { src: ImgSet15, alt: "", title: "Bathroom Vanities" },
-        { src: ImgSet6p1, alt: "", title: "Built-ins" },
-        { src: ImgSet4, alt: "", title: "Furniture" },
-        { src: ImgSet1p2, alt: "", title: "Wall Coverings" },
-        { src: ImgSet17, alt: "", title: "Wood Turning" },
+        { src: ImgSet9p4, alt: "", title: "Kitchens", to: "/kitchens" },
+        { src: ImgSet15, alt: "", title: "Bathroom Vanities", to: "/BathroomVanities" },
+        { src: ImgSet6p1, alt: "", title: "Built-ins", to: "BuiltIns" },
+        { src: ImgSet4, alt: "", title: "Furniture", to: "Furniture" },
+        { src: ImgSet1p2, alt: "", title: "Wall Coverings", to: "WallCoverings" },
+        { src: ImgSet17, alt: "", title: "Wood Turning", to: "WoodTurning" },
     ];
 
 

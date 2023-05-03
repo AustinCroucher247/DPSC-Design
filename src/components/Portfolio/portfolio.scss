@@ -60,3 +60,26 @@
         flex-direction: column;
     }
 }
+
+.cards-list a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    padding: .4rem;
+}
+
+.card--overlay--text {
+    font-size: 1.5rem;
+}
+
+.margin {
+    margin-top: 75px;
+}
+
+.margin1 {
+    margin-top: 50px;
+}
+
+.margin2 {
+    margin-top: 40px;
+}
