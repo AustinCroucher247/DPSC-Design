@@ -1,14 +1,17 @@
 import './footer.scss'
 
-
+//to change email to go to dylan, need to swap random string for his email
 function Footer() {
     return (
         <div className='footer'>
+            <div>
+                <p className='contact--text'>Contact Me</p>
+            </div>
             <form action="https://formsubmit.co/092d6d2b49e64d5ea83288c159a27055 " method="POST" id="contact-form">
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email">Your Email:</label>
                 <input type="email" id="email" name="email" required />
 
                 <label htmlFor="message">Message:</label>

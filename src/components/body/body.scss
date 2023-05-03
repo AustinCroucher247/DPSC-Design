@@ -22,7 +22,7 @@
         width: 90%;
         height: 280px;
         width: 90%;
-        border: 1px solid black;
+        border: 1px solid #ccc;
         border-radius: 4px;
 
         &--container {
@@ -30,6 +30,12 @@
             justify-content: center
         }
     }
+}
+
+.card1 p,
+.card2 p {
+    margin: 0;
+    padding-bottom: 1rem;
 }
 
 .card {
@@ -46,6 +52,8 @@
 
     }
 }
+
+
 
 .arrows {
     width: 10%;
