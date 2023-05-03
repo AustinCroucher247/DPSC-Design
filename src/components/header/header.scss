@@ -47,11 +47,24 @@
     }
 }
 
-li {
+li,
+a {
     list-style-type: none;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .logo {
     width: 80%;
     margin: 0 auto;
+}
+
+.nav--list a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.nav--list a:hover {
+    color: black;
+    font-size: 1.2rem;
 }
