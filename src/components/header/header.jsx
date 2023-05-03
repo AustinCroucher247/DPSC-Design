@@ -1,5 +1,4 @@
 import './header.scss'
-import Tree from '../../assets/PineTree.png'
 import Logo from '../../assets/logo.png'
 
 function Header() {
