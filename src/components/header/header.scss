@@ -1,0 +1,50 @@
+@use "../../partials/global" as *;
+@use "../../partials/variables" as *;
+@use "../../partials/font" as *;
+@use "../../partials/mixin" as *;
+
+.header {
+    &--container {
+        height: 8rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid black;
+        width: 80%;
+        margin: 0 auto;
+        font-family: raleway;
+        font-weight: 500;
+        // background-image: url('../../assets/trees.png');
+        // background-repeat: no-repeat;
+        // background-size: cover;
+    }
+
+    &--title {
+        font-size: 3.2rem;
+        padding-top: 1rem;
+        text-align: center;
+    }
+}
+
+.nav {
+    &--list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 0 auto;
+        padding: 0;
+        padding-top: 1.2rem;
+        font-family: raleway;
+        text-align: center;
+        line-height: 1.8rem;
+        border-bottom: 1px solid black;
+        padding-bottom: 1rem;
+        width: 60%;
+
+        @include tablet {
+            width: 70%;
+        }
+    }
+}
+
+li {
+    list-style-type: none;
+}
