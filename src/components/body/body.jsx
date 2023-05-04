@@ -30,7 +30,7 @@ import ImgSet70 from '../../assets/ImgSet7.jpeg'
 import ImgSet7p2 from '../../assets/ImgSet7-2.jpeg'
 import ImgSet7p3 from '../../assets/ImgSet7-3.jpeg'
 // import ImgSet7p4 from '../../assets/ImgSet7-4.jpeg'
-// import ImgSet8 from '../../assets/ImgSet8.jpeg'
+import ImgSet8 from '../../assets/ImgSet8.jpeg'
 // import ImgSet8p2 from '../../assets/ImgSet8-2.jpeg'
 // import ImgSet9 from '../../assets/ImgSet9.jpeg'
 // import ImgSet9p2 from '../../assets/ImgSet9-2.jpeg'
@@ -51,21 +51,28 @@ import ImgSet15 from '../../assets/ImgSet15.jpeg'
 // import ImgSet15p2 from '../../assets/ImgSet15-2.jpeg'
 // import ImgSet16 from '../../assets/ImgSet16.jpeg'
 import ImgSet17 from '../../assets/ImgSet17.jpeg'
-
-
-
-
-
-
-
-
-
-
-
+import axios from 'axios';
 
 function Body() {
-    const images = [ImgSet4,
-        ImgSet4p1, ImgSet4p2, ImgSet1, ImgSet1p2, ImgSet2, ImgSet2p2, ImgSet3, ImgSet5, ImgSet5p2, ImgSet6, ImgSet6p1, ImgSet6p2, ImgSet6p3, ImgSet6p4, ImgSet7, ImgSet70, ImgSet7p2, ImgSet7p3,];
+    const [images, setBodyImages] = useState([]);
+    const [carouselImages, setCarouselImages] = useState([]);
+
+    useEffect(() => {
+        const fetchImages = async () => {
+            try {
+                const bodyImagesResponse = await fetch('http://localhost:1337/api/body-images/2?populate=*');
+                const bodyImagesData = await bodyImagesResponse.json();
+                console.log("Body Images API response:", bodyImagesData); // Add this line
+
+                // Rest of the code
+            } catch (error) {
+                console.error('Error fetching images:', error);
+            }
+        };
+
+        fetchImages();
+    }, []);
+
     const [currentImage, setCurrentImage] = useState(0);
 
     useEffect(() => {
@@ -77,17 +84,6 @@ function Body() {
         // eslint-disable-next-line
     }, [currentImage]);
 
-
-    const imagesCarousel = [
-        { src: ImgSet9p4, alt: "", title: "Kitchens", to: "/kitchens" },
-        { src: ImgSet15, alt: "", title: "Bathroom Vanities", to: "/BathroomVanities" },
-        { src: ImgSet6p1, alt: "", title: "Built-ins", to: "BuiltIns" },
-        { src: ImgSet4, alt: "", title: "Furniture", to: "Furniture" },
-        { src: ImgSet1p2, alt: "", title: "Wall Coverings", to: "WallCoverings" },
-        { src: ImgSet17, alt: "", title: "Wood Turning", to: "WoodTurning" },
-    ];
-
-
     return (
         <div className='body'>
             <div className='body--container'>
@@ -95,10 +91,10 @@ function Body() {
                 <p className='body--text--italic'>Beautiful, Original Handmade Creations</p>
             </div>
             <div className='body--image--container'>
-                <img className='body--image' src={images[currentImage]} alt="" />
+                <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
             </div>
             <section className='card'>
-                <Carousel images={imagesCarousel} />
+                <Carousel images={carouselImages} />
             </section>
             <section className='history'>
             </section>
@@ -108,3 +104,61 @@ function Body() {
 }
 
 export default Body;
+
+
+
+
+
+
+
+
+
+
+
+// function Body() {
+//     const images = [ImgSet4,
+//         ImgSet4p1, ImgSet4p2, ImgSet1, ImgSet1p2, ImgSet2, ImgSet2p2, ImgSet3, ImgSet5, ImgSet5p2, ImgSet6, ImgSet6p1, ImgSet6p2, ImgSet6p3, ImgSet6p4, ImgSet7, ImgSet70, ImgSet7p2, ImgSet7p3,];
+//     const [currentImage, setCurrentImage] = useState(0);
+
+//     useEffect(() => {
+//         const timer = setTimeout(() => {
+//             setCurrentImage((prevCurrentImage) => (prevCurrentImage + 1) % images.length);
+//         }, 4000); // Change the image every 4 seconds
+
+//         return () => clearTimeout(timer);
+//         // eslint-disable-next-line
+//     }, [currentImage]);
+
+
+//     const imagesCarousel = [
+//         { src: ImgSet9p4, alt: "", title: "Kitchens", to: "/kitchens" },
+//         { src: ImgSet15, alt: "", title: "Bathroom Vanities", to: "/BathroomVanities" },
+//         { src: ImgSet6p1, alt: "", title: "Built-ins", to: "BuiltIns" },
+//         { src: ImgSet4, alt: "", title: "Furniture", to: "Furniture" },
+//         { src: ImgSet8, alt: "", title: "Wall Coverings", to: "WallCoverings" },
+//         { src: ImgSet17, alt: "", title: "Wood Turning", to: "WoodTurning" },
+//     ];
+
+
+//     return (
+//         <div className='body'>
+//             <div className='body--container'>
+//                 <p className='body--text'>Croucher Woodshop Creations</p>
+//                 <p className='body--text--italic'>Beautiful, Original Handmade Creations</p>
+//             </div>
+//             <div className='body--image--container'>
+//                 <img className='body--image' src={images[currentImage]} alt="" />
+//             </div>
+//             <section className='card'>
+//                 <Carousel images={imagesCarousel} />
+//             </section>
+//             <section className='history'>
+//             </section>
+//             <Footer />
+//         </div>
+//     );
+// }
+
+// export default Body;
+
+
