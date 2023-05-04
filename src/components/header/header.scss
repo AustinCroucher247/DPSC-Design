@@ -57,6 +57,7 @@ a {
 .logo {
     width: 80%;
     margin: 0 auto;
+
 }
 
 .nav--list a {
@@ -67,4 +68,8 @@ a {
 .nav--list a:hover {
     color: black;
     font-size: 1.2rem;
+}
+
+.nav--list a:active {
+    font-weight: bold;
 }

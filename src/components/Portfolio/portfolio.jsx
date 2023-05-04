@@ -3,8 +3,12 @@ import ImgSet17 from '../../assets/ImgSet17.jpeg'
 import ImgSet15 from '../../assets/ImgSet15.jpeg'
 import ImgSet9p4 from '../../assets/ImgSet9-4.jpeg'
 import ImgSet6p1 from '../../assets/ImgSet6.jpeg'
-import ImgSet1p2 from '../../assets/ImgSet1-2.jpeg'
 import ImgSet4 from '../../assets/ImgSet4.jpeg'
+import ImgSet8 from '../../assets/ImgSet8.jpeg'
+import ImgSet3 from '../../assets/ImgSet3.jpeg'
+
+import ImgSet2 from '../../assets/ImgSet2.jpeg'
+
 import { Link } from 'react-router-dom'
 
 
@@ -56,7 +60,7 @@ function Portfolio() {
             <Link to={'/WallCoverings'}>
                 <div class="card10 55">
                     <div class="card_image">
-                        <img src={ImgSet1p2} alt='Wall Coverings' />
+                        <img src={ImgSet8} alt='Wall Coverings' />
                     </div>
                     <div class="card_title title-black">
                         <p className='card--overlay--text margin1'>Wall Coverings</p>
@@ -71,6 +75,26 @@ function Portfolio() {
                     </div>
                     <div class="card_title title-black">
                         <p className='card--overlay--text margin1'>Wood Turning</p>
+                    </div>
+                </div>
+            </Link>
+            <Link to={'/EntertainmentConsoles'}>
+                <div class="card10 55">
+                    <div class="card_image">
+                        <img src={ImgSet2} alt='Wood Turning' />
+                    </div>
+                    <div class="card_title title-black">
+                        <p className='card--overlay--text margin10'>Entertainment Consoles</p>
+                    </div>
+                </div>
+            </Link>
+            <Link to={'/Miscellaneous'}>
+                <div class="card10 55">
+                    <div class="card_image">
+                        <img src={ImgSet3} alt='Wood Turning' />
+                    </div>
+                    <div class="card_title title-black">
+                        <p className='card--overlay--text margin100'>Miscellaneous</p>
                     </div>
                 </div>
             </Link>
