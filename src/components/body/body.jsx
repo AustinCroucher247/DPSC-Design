@@ -53,18 +53,21 @@ import ImgSet15 from '../../assets/ImgSet15.jpeg'
 import ImgSet17 from '../../assets/ImgSet17.jpeg'
 import axios from 'axios';
 
+
 function Body() {
-    const [images, setBodyImages] = useState([]);
+    const [images, setImages] = useState([]);
     const [carouselImages, setCarouselImages] = useState([]);
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const bodyImagesResponse = await fetch('http://localhost:1337/api/body-images/2?populate=*');
-                const bodyImagesData = await bodyImagesResponse.json();
-                console.log("Body Images API response:", bodyImagesData); // Add this line
+                const bodyImagesResponse = await axios.get('http://localhost:1337/api/body-images?populate=*');
+                const bodyImagesData = bodyImagesResponse.data.data;
+                console.log("Body Images API response:", bodyImagesData);
 
-                // Rest of the code
+                const imageUrls = bodyImagesData.map(imgData => imgData.attributes.image.data[0].attributes.url);
+                setImages(imageUrls);
+
             } catch (error) {
                 console.error('Error fetching images:', error);
             }
@@ -76,13 +79,15 @@ function Body() {
     const [currentImage, setCurrentImage] = useState(0);
 
     useEffect(() => {
+        if (!images.length) return;
+
         const timer = setTimeout(() => {
             setCurrentImage((prevCurrentImage) => (prevCurrentImage + 1) % images.length);
         }, 4000); // Change the image every 4 seconds
 
         return () => clearTimeout(timer);
         // eslint-disable-next-line
-    }, [currentImage]);
+    }, [currentImage, images]);
 
     return (
         <div className='body'>
@@ -91,7 +96,9 @@ function Body() {
                 <p className='body--text--italic'>Beautiful, Original Handmade Creations</p>
             </div>
             <div className='body--image--container'>
-                <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
+                {images.length > 0 && (
+                    <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
+                )}
             </div>
             <section className='card'>
                 <Carousel images={carouselImages} />
