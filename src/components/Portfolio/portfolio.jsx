@@ -12,96 +12,158 @@ import ImgSet2 from '../../assets/ImgSet2.jpeg'
 import { Link } from 'react-router-dom'
 
 
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+
 function Portfolio() {
+    const [portfolioItems, setPortfolioItems] = useState([]);
+
+    useEffect(() => {
+        const fetchPortfolioItems = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/portfolio-images?populate=*');
+                setPortfolioItems(response.data.data);
+                console.log(response)
+            } catch (error) {
+                console.error('Error fetching portfolio items:', error);
+            }
+        };
+
+        fetchPortfolioItems();
+    }, []);
+
     return (
-        <div class="cards-list">
-            <Link to={'/kitchens'}>
-                <div class="card10 11">
-                    <div class="card_image"> <img src={ImgSet9p4} alt='kitchens' /> </div>
-                    <div class="card_title title-white">
-                        <p className='card--overlay--text margin'>Kitchens</p>
+        <div className="cards-list">
+            {portfolioItems.map((item, index) => (
+                <Link to={item.attributes.link} key={index}>
+                    <div className={`card10 ${item.attributes.classSuffix}`}>
+                        <div className="card_image">
+                            <img src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} alt={item.attributes.title} />
+                        </div>
+                        <div className={`card_title ${item.attributes.titleClass}`}>
+                            <p className={`card--overlay--text ${item.attributes.marginClass}`}>{item.attributes.title}</p>
+                        </div>
                     </div>
-                </div>
-            </Link>
-
-            <Link to={'/BathroomVanities'}>
-                <div class="card10 22">
-                    <div class="card_image">
-                        <img src={ImgSet15} alt='bathrooms' />
-                    </div>
-                    <div class="card_title title-white">
-                        <p className='card--overlay--text margin2'>Bathroom Vanities</p>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to={'/BuiltIns'}>
-                <div class="card10 33">
-                    <div class="card_image">
-                        <img src={ImgSet6p1} alt='built ins' />
-                    </div>
-                    <div class="card_title">
-                        <p className='card--overlay--text margin'>Built-ins</p>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to={'/Furniture'}>
-                <div class="card10 44">
-                    <div class="card_image">
-                        <img src={ImgSet4} alt='furniture' />
-                    </div>
-                    <div class="card_title title-black">
-                        <p className='card--overlay--text margin' >Furniture</p>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to={'/WallCoverings'}>
-                <div class="card10 55">
-                    <div class="card_image">
-                        <img src={ImgSet8} alt='Wall Coverings' />
-                    </div>
-                    <div class="card_title title-black">
-                        <p className='card--overlay--text margin1'>Wall Coverings</p>
-                    </div>
-                </div>
-            </Link>
-
-            <Link to={'/WoodTurning'}>
-                <div class="card10 55">
-                    <div class="card_image">
-                        <img src={ImgSet17} alt='Wood Turning' />
-                    </div>
-                    <div class="card_title title-black">
-                        <p className='card--overlay--text margin1'>Wood Turning</p>
-                    </div>
-                </div>
-            </Link>
-            <Link to={'/EntertainmentConsoles'}>
-                <div class="card10 55">
-                    <div class="card_image">
-                        <img src={ImgSet2} alt='Wood Turning' />
-                    </div>
-                    <div class="card_title title-black">
-                        <p className='card--overlay--text margin10'>Entertainment Consoles</p>
-                    </div>
-                </div>
-            </Link>
-            <Link to={'/Miscellaneous'}>
-                <div class="card10 55">
-                    <div class="card_image">
-                        <img src={ImgSet3} alt='Wood Turning' />
-                    </div>
-                    <div class="card_title title-black">
-                        <p className='card--overlay--text margin100'>Miscellaneous</p>
-                    </div>
-                </div>
-            </Link>
-
-
+                </Link>
+            ))}
         </div>
     );
 }
 
 export default Portfolio;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function Portfolio() {
+//     return (
+//         <div class="cards-list">
+//             <Link to={'/kitchens'}>
+//                 <div class="card10 11">
+//                     <div class="card_image"> <img src={ImgSet9p4} alt='kitchens' /> </div>
+//                     <div class="card_title title-white">
+//                         <p className='card--overlay--text margin'>Kitchens</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+//             <Link to={'/BathroomVanities'}>
+//                 <div class="card10 22">
+//                     <div class="card_image">
+//                         <img src={ImgSet15} alt='bathrooms' />
+//                     </div>
+//                     <div class="card_title title-white">
+//                         <p className='card--overlay--text margin2'>Bathroom Vanities</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+//             <Link to={'/BuiltIns'}>
+//                 <div class="card10 33">
+//                     <div class="card_image">
+//                         <img src={ImgSet6p1} alt='built ins' />
+//                     </div>
+//                     <div class="card_title">
+//                         <p className='card--overlay--text margin'>Built-ins</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+//             <Link to={'/Furniture'}>
+//                 <div class="card10 44">
+//                     <div class="card_image">
+//                         <img src={ImgSet4} alt='furniture' />
+//                     </div>
+//                     <div class="card_title title-black">
+//                         <p className='card--overlay--text margin' >Furniture</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+//             <Link to={'/WallCoverings'}>
+//                 <div class="card10 55">
+//                     <div class="card_image">
+//                         <img src={ImgSet8} alt='Wall Coverings' />
+//                     </div>
+//                     <div class="card_title title-black">
+//                         <p className='card--overlay--text margin1'>Wall Coverings</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+//             <Link to={'/WoodTurning'}>
+//                 <div class="card10 55">
+//                     <div class="card_image">
+//                         <img src={ImgSet17} alt='Wood Turning' />
+//                     </div>
+//                     <div class="card_title title-black">
+//                         <p className='card--overlay--text margin1'>Wood Turning</p>
+//                     </div>
+//                 </div>
+//             </Link>
+//             <Link to={'/EntertainmentConsoles'}>
+//                 <div class="card10 55">
+//                     <div class="card_image">
+//                         <img src={ImgSet2} alt='Wood Turning' />
+//                     </div>
+//                     <div class="card_title title-black">
+//                         <p className='card--overlay--text margin10'>Entertainment Consoles</p>
+//                     </div>
+//                 </div>
+//             </Link>
+//             <Link to={'/Miscellaneous'}>
+//                 <div class="card10 55">
+//                     <div class="card_image">
+//                         <img src={ImgSet3} alt='Wood Turning' />
+//                     </div>
+//                     <div class="card_title title-black">
+//                         <p className='card--overlay--text margin100'>Miscellaneous</p>
+//                     </div>
+//                 </div>
+//             </Link>
+
+
+//         </div>
+//     );
+// }
+
+// export default Portfolio;
