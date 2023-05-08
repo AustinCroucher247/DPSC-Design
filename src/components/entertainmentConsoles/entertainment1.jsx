@@ -1,30 +1,40 @@
-
-import ImgSet2 from '../../assets/ImgSet2.jpeg'
-import ImgSet2p1 from '../../assets/ImgSet2-2.jpeg'
-
-
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 function Entertainment1() {
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [images, setImages] = useState([]);
 
+    const [selectedImage, setSelectedImage] = useState(null);
+    useEffect(() => {
+        const fetchEntertainmentImages = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/entertainment1s?populate=*');
+                const imagesData = response.data.data[0].attributes.Image.data;
+                console.log(response);
+                const images = Object.values(imagesData).map((imageData) => imageData.attributes);
+                console.log('Images:', images);
+                setImages(images.filter(image => image !== undefined));
+            } catch (error) {
+                console.error('Error fetching kitchen images:', error);
+            }
+        };
+
+        fetchEntertainmentImages();
+    }, []);
     return (
         <>
             <p className="vanity1--text">Gallery</p>
             <div className="builtins--container">
-                <img
-                    className="vanity--image1"
-                    src={ImgSet2}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet2)}
-                />
-                <img
-                    className="vanity--image1"
-                    src={ImgSet2p1}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet2p1)}
-                />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        className="vanity--image1"
+                        src={`http://localhost:1337${image.url}`}
+                        alt="vanity1"
+                        onClick={() => setSelectedImage(`http://localhost:1337${image.url}`)}
+                    />
+                ))}
             </div>
 
             {selectedImage && (

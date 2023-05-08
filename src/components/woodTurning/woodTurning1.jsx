@@ -1,23 +1,39 @@
-
-import ImgSet17 from '../../assets/ImgSet17.jpeg'
-
-
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
 function WallCoverings1() {
+    const [images, setImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
+    useEffect(() => {
+        const fetchTurningImages = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/turning1s?populate=*');
+                const imagesData = response.data.data[0].attributes.Image.data;
+                console.log(response);
+                const images = Object.values(imagesData).map((imageData) => imageData.attributes);
+                console.log('Images:', images);
+                setImages(images.filter(image => image !== undefined));
+            } catch (error) {
+                console.error('Error fetching kitchen images:', error);
+            }
+        };
 
+        fetchTurningImages();
+    }, []);
     return (
         <>
             <p className="vanity1--text">Gallery</p>
             <div className="builtins--container">
-                <img
-                    className="vanity--image1"
-                    src={ImgSet17}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet17)}
-                />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        className="vanity--image1"
+                        src={`http://localhost:1337${image.url}`}
+                        alt="vanity1"
+                        onClick={() => setSelectedImage(`http://localhost:1337${image.url}`)}
+                    />
+                ))}
             </div>
 
             {selectedImage && (

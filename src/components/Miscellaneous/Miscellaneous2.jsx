@@ -1,30 +1,40 @@
-
-import ImgSet13 from '../../assets/ImgSet13.jpeg'
-import ImgSet13p2 from '../../assets/ImgSet13-2.jpeg'
-
-
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 
-function Miscellaneous2() {
+function Miscellaneous1() {
+    const [images, setImages] = useState([]);
+
     const [selectedImage, setSelectedImage] = useState(null);
+    useEffect(() => {
+        const fetchMiscImages = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/miscellaneous2s?populate=*');
+                const imagesData = response.data.data[0].attributes.Image.data;
+                console.log(response);
+                const images = Object.values(imagesData).map((imageData) => imageData.attributes);
+                console.log('Images:', images);
+                setImages(images.filter(image => image !== undefined));
+            } catch (error) {
+                console.error('Error fetching kitchen images:', error);
+            }
+        };
 
+        fetchMiscImages();
+    }, []);
     return (
         <>
             <p className="vanity1--text">Gallery</p>
             <div className="builtins--container">
-                <img
-                    className="vanity--image1"
-                    src={ImgSet13}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet13)}
-                />
-                <img
-                    className="vanity--image1"
-                    src={ImgSet13p2}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet13p2)}
-                />
+                {images.map((image, index) => (
+                    <img
+                        key={index}
+                        className="vanity--image1"
+                        src={`http://localhost:1337${image.url}`}
+                        alt="vanity1"
+                        onClick={() => setSelectedImage(`http://localhost:1337${image.url}`)}
+                    />
+                ))}
             </div>
 
             {selectedImage && (
@@ -36,4 +46,4 @@ function Miscellaneous2() {
     );
 }
 
-export default Miscellaneous2;
+export default Miscellaneous1;

@@ -30,6 +30,14 @@ import Entertainment1 from "./components/entertainmentConsoles/entertainment1";
 import Miscellaneous from "./components/Miscellaneous/Miscellaneous";
 import Miscellaneous1 from "./components/Miscellaneous/Miscellaneous1";
 import Miscellaneous2 from "./components/Miscellaneous/Miscellaneous2";
+import WallCoveringProject from "./components/wallCoverings/wallCoveringProjects";
+import BuiltInProjects from "./components/builtIns/builtInProjects";
+import KitchenProjects from "./components/kitchens/kitchenProjects";
+import VanitiesProjects from "./components/vanities/vanitiesProjects";
+import FurnitureProjects from "./components/Furniture/funitureProjects";
+import WoodTurningProjects from "./components/woodTurning/woodTurningProjects";
+import EntertainmentProjects from "./components/entertainmentConsoles/entertainmentProjects";
+
 
 function App() {
   return (
@@ -42,10 +50,13 @@ function App() {
           <Route path="/Portfolio" element={<Portfolio />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/BathroomVanities" element={<BathroomVanities />} />
+          <Route path="/BathroomVanities/:id" element={<VanitiesProjects />} />
           <Route path="/vanity1" element={<Vanity1 />} />
           <Route path="/kitchens" element={<Kitchen />} />
+          <Route path="/kitchens/:id" element={<KitchenProjects />} />
           <Route path="/kitchen1" element={<Kitchen1 />} />
           <Route path="/BuiltIns" element={<BuiltIns />} />
+          <Route path="/BuiltIns/:id" element={<BuiltInProjects />} />
           <Route path="/BuiltIns1" element={<BuiltIns1 />} />
           <Route path="/BuiltIns2" element={<BuiltIns2 />} />
           <Route path="/BuiltIns3" element={<BuiltIns3 />} />
@@ -53,15 +64,19 @@ function App() {
           <Route path="/BuiltIns5" element={<BuiltIns5 />} />
           <Route path="/BuiltIns6" element={<BuiltIns6 />} />
           <Route path="/Furniture" element={<Furniture />} />
+          <Route path="/Furniture/:id" element={<FurnitureProjects />} />
           <Route path="/Furniture1" element={<Furniture1 />} />
           <Route path="/Furniture2" element={<Furniture2 />} />
           <Route path="/Furniture3" element={<Furniture3 />} />
           <Route path="/Furniture4" element={<Furniture4 />} />
           <Route path="/wallCoverings" element={<WallCoverings />} />
-          <Route path="/wallCoverings1" element={<WallCoverings1 />} />
+          <Route path="/wallCoverings/:id" element={<WallCoveringProject />} />
           <Route path="/woodTurning" element={<WoodTurning />} />
+          <Route path="/woodTurning/:id" element={<WoodTurningProjects />} />
           <Route path="/woodTurning1" element={<WoodTurning1 />} />
           <Route path="/EntertainmentConsoles" element={<Entertainment />} />
+          <Route path="/EntertainmentConsoles/:id" element={<EntertainmentProjects />} />
+
           <Route path="/EntertainmentConsoles1" element={<Entertainment1 />} />
           <Route path="/Miscellaneous" element={<Miscellaneous />} />
           <Route path="/Miscellaneous1" element={<Miscellaneous1 />} />

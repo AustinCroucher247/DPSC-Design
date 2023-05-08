@@ -2,45 +2,87 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-
 function BuiltIns() {
-    const [builtIns, setBuiltIns] = useState([]);
+    const [projects, setProjects] = useState([]);
 
     useEffect(() => {
-        const fetchBuiltIns = async () => {
+        const fetchProjects = async () => {
             try {
-                // Update the URL with the correct endpoint for your data
-                const response = await axios.get('http://localhost:1337/api/all-built-ins?populate=*');
-                setBuiltIns(response.data.data);
+                const response = await axios.get('http://localhost:1337/api/built-ins?populate=*');
+                // Access the data array from the response object.
+                const projectsData = response.data.data;
+                setProjects(projectsData);
             } catch (error) {
-                console.error('Error fetching builtIns:', error);
+                console.error('Error fetching projects:', error);
             }
         };
 
-        fetchBuiltIns();
+        fetchProjects();
     }, []);
 
     return (
         <div>
-            {builtIns.map((builtIn, index) => (
-                builtIn.attributes.Image.data.map((imageData, imgIndex) => (
-                    <Link key={`${index}-${imgIndex}`} to={builtIn.attributes.Link}>
-                        <div className="card10 22">
-                            <div className="card_image">
-                                <img src={`http://localhost:1337${imageData.attributes.url}`} alt="built-ins" />
-                            </div>
-                            <div className="card_title title-white">
-                                <p className="card--overlay--text margin2"></p>
-                            </div>
+            {projects.map((project) => (
+                <div className='dynamic--container' key={project.id}>
+                    <h3>{project.attributes.Title}</h3>
+                    <Link to={`/builtIns/${project.id}`}>
+                        <div className="dynamic-image">
+                            <img className="dynamic-image" src={`http://localhost:1337${project.attributes.Thumbnail.data.attributes.url}`} alt={project.attributes.Title} />
                         </div>
                     </Link>
-                ))
+                </div>
             ))}
         </div>
     );
 }
 
 export default BuiltIns;
+
+
+
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { Link } from 'react-router-dom';
+
+
+// function BuiltIns() {
+//     const [builtIns, setBuiltIns] = useState([]);
+
+//     useEffect(() => {
+//         const fetchBuiltIns = async () => {
+//             try {
+//                 // Update the URL with the correct endpoint for your data
+//                 const response = await axios.get('http://localhost:1337/api/all-built-ins?populate=*');
+//                 setBuiltIns(response.data.data);
+//             } catch (error) {
+//                 console.error('Error fetching builtIns:', error);
+//             }
+//         };
+
+//         fetchBuiltIns();
+//     }, []);
+
+//     return (
+//         <div>
+//             {builtIns.map((builtIn, index) => (
+//                 builtIn.attributes.Image.data.map((imageData, imgIndex) => (
+//                     <Link key={`${index}-${imgIndex}`} to={builtIn.attributes.Link}>
+//                         <div className="card10 22">
+//                             <div className="card_image">
+//                                 <img src={`http://localhost:1337${imageData.attributes.url}`} alt="built-ins" />
+//                             </div>
+//                             <div className="card_title title-white">
+//                                 <p className="card--overlay--text margin2"></p>
+//                             </div>
+//                         </div>
+//                     </Link>
+//                 ))
+//             ))}
+//         </div>
+//     );
+// }
+
+// export default BuiltIns;
 
 
 // import ImgSet6p4 from '../../assets/ImgSet6-4.jpeg'
