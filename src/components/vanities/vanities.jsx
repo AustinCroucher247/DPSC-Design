@@ -3,36 +3,38 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 function BathroomVanities() {
-    const [imageSrc, setImageSrc] = useState(null);
+    const [vanity, setVanity] = useState([]);
 
     useEffect(() => {
-        const fetchImage = async () => {
+        const fetchVanity = async () => {
             try {
-                // Make an API call to get the image from Strapi
-                // Update the URL with the correct endpoint for your image
                 const response = await axios.get('http://localhost:1337/api/all-bathrooms?populate=*');
-                const imageUrl = response.data.data[0].attributes.Image.data.attributes.url;
-                setImageSrc(`http://localhost:1337${imageUrl}`);
+                setVanity(response.data.data);
             } catch (error) {
-                console.error('Error fetching image:', error);
+                console.error('Error fetching builtIns:', error);
             }
         };
 
-        fetchImage();
+        fetchVanity();
     }, []);
 
     return (
         <div>
-            <Link to="/vanity1">
-                <div className="card10 22">
-                    <div className="card_image">
-                        {imageSrc && <img src={imageSrc} alt="bathrooms" />}
-                    </div>
-                    <div className="card_title title-white">
-                        <p className="card--overlay--text margin2"></p>
-                    </div>
-                </div>
-            </Link>
+            {vanity.map((vanityItem, index) => {
+                const imageData = vanityItem.attributes.Image.data.attributes;
+                return (
+                    <Link key={`${index}`} to={vanityItem.attributes.Link}>
+                        <div className="card10 22">
+                            <div className="card_image">
+                                <img src={`http://localhost:1337${imageData.url}`} alt="built-ins" />
+                            </div>
+                            <div className="card_title title-white">
+                                <p className="card--overlay--text margin2"></p>
+                            </div>
+                        </div>
+                    </Link>
+                );
+            })}
         </div>
     );
 }

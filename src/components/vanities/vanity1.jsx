@@ -26,7 +26,7 @@ function Vanity1() {
     return (
         <>
             <p className="vanity1--text">Gallery</p>
-            <div className="vanity1--container">
+            <div className="builtins--container">
                 {images.map((image, index) => (
                     <img
                         key={index}
