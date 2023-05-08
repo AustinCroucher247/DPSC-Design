@@ -2,55 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './body.scss';
 import Carousel from "../Carousel/carousel";
 import Footer from '../footer/footer';
-
-
-
-// import LeftArrow from '../../assets/LeftArrow.png';
-// import RightArrow from '../../assets/RightArrow.png';
-
-// Pictures From Dylan
-
-import ImgSet1 from '../../assets/ImgSet1.jpeg'
-import ImgSet1p2 from '../../assets/ImgSet1-2.jpeg'
-import ImgSet2 from '../../assets/ImgSet2.jpeg'
-import ImgSet2p2 from '../../assets/ImgSet2-2.jpeg'
-import ImgSet3 from '../../assets/ImgSet3.jpeg'
-import ImgSet4 from '../../assets/ImgSet4.jpeg'
-import ImgSet4p1 from '../../assets/ImgSet4-1.jpeg'
-import ImgSet4p2 from '../../assets/ImgSet4-2.jpeg'
-import ImgSet5 from '../../assets/ImgSet5.jpeg'
-import ImgSet5p2 from '../../assets/ImgSet5-2.jpeg'
-import ImgSet6 from '../../assets/ImgSet6-0.jpeg'
-import ImgSet6p1 from '../../assets/ImgSet6.jpeg'
-import ImgSet6p2 from '../../assets/ImgSet6-2.jpeg'
-import ImgSet6p3 from '../../assets/ImgSet6-3.jpeg'
-import ImgSet6p4 from '../../assets/ImgSet6-4.jpeg'
-import ImgSet7 from '../../assets/ImgSet7-1.jpeg'
-import ImgSet70 from '../../assets/ImgSet7.jpeg'
-import ImgSet7p2 from '../../assets/ImgSet7-2.jpeg'
-import ImgSet7p3 from '../../assets/ImgSet7-3.jpeg'
-// import ImgSet7p4 from '../../assets/ImgSet7-4.jpeg'
-import ImgSet8 from '../../assets/ImgSet8.jpeg'
-// import ImgSet8p2 from '../../assets/ImgSet8-2.jpeg'
-// import ImgSet9 from '../../assets/ImgSet9.jpeg'
-// import ImgSet9p2 from '../../assets/ImgSet9-2.jpeg'
-// import ImgSet9p3 from '../../assets/ImgSet9-3.jpeg'
-import ImgSet9p4 from '../../assets/ImgSet9-4.jpeg'
-// import ImgSet10 from '../../assets/ImgSet10.jpeg'
-// import ImgSet11 from '../../assets/ImgSet11.jpeg'
-// import ImgSet11p2 from '../../assets/ImgSet11-2.jpeg'
-// import ImgSet12 from '../../assets/ImgSet12.jpeg'
-// import ImgSet12p2 from '../../assets/ImgSet12-2.jpeg'
-// import ImgSet12p3 from '../../assets/ImgSet12-3.jpeg'
-// import ImgSet12p4 from '../../assets/ImgSet12-4.jpeg'
-// import ImgSet13 from '../../assets/ImgSet13.jpeg'
-// import ImgSet13p2 from '../../assets/ImgSet13-2.jpeg'
-// import ImgSet14 from '../../assets/ImgSet14.jpeg'
-// import ImgSet14p2 from '../../assets/ImgSet14-2.jpeg'
-import ImgSet15 from '../../assets/ImgSet15.jpeg'
-// import ImgSet15p2 from '../../assets/ImgSet15-2.jpeg'
-// import ImgSet16 from '../../assets/ImgSet16.jpeg'
-import ImgSet17 from '../../assets/ImgSet17.jpeg'
 import axios from 'axios';
 
 

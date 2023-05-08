@@ -1,43 +1,43 @@
-
-import ImgSet9 from '../../assets/ImgSet9.jpeg'
-import ImgSet9p2 from '../../assets/ImgSet9-2.jpeg'
-import ImgSet9p3 from '../../assets/ImgSet9-3.jpeg'
-import ImgSet9p4 from '../../assets/ImgSet9-4.jpeg'
-import { useState } from 'react';
-import './kitchen.scss'
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './kitchen.scss';
 
 function Kitchen1() {
+    const [kitchenImages, setKitchenImages] = useState([]);
     const [selectedImage, setSelectedImage] = useState(null);
+
+    useEffect(() => {
+        const fetchKitchenImages = async () => {
+            try {
+                const response = await axios.get('http://localhost:1337/api/kitchen1s?populate=*');
+                const imagesData = response.data.data[0].attributes.Image.data;
+                console.log(response);
+                const images = Object.values(imagesData).map((imageData) => imageData.attributes);
+                console.log('Images:', images);
+                setKitchenImages(images.filter(image => image !== undefined));
+            } catch (error) {
+                console.error('Error fetching kitchen images:', error);
+            }
+        };
+
+        fetchKitchenImages();
+    }, []);
 
     return (
         <>
             <p className="vanity1--text">Gallery</p>
             <div className="kitchen1--container">
-                <img
-                    className="vanity--image1"
-                    src={ImgSet9}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet9)}
-                />
-
-                <img
-                    className="vanity--image1"
-                    src={ImgSet9p2}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet9p2)}
-                />
-                <img
-                    className="vanity--image1"
-                    src={ImgSet9p3}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet9p3)}
-                />
-                <img
-                    className="vanity--image1"
-                    src={ImgSet9p4}
-                    alt="vanity1"
-                    onClick={() => setSelectedImage(ImgSet9p4)}
-                />
+                {kitchenImages.map((imageObj, index) => {
+                    return (
+                        <img
+                            key={index}
+                            className="vanity--image1"
+                            src={`http://localhost:1337${imageObj.url}`}
+                            alt={`vanity${index + 1}`}
+                            onClick={() => setSelectedImage(`http://localhost:1337${imageObj.url}`)}
+                        />
+                    );
+                })}
             </div>
 
             {selectedImage && (

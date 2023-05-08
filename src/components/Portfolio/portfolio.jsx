@@ -41,7 +41,7 @@ function Portfolio() {
                             <img src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} alt={item.attributes.title} />
                         </div>
                         <div className={`card_title ${item.attributes.titleClass}`}>
-                            <p className={`card--overlay--text ${item.attributes.marginClass}`}>{item.attributes.title}</p>
+                            <p className={`card--overlay--text card1 ${item.attributes.marginClass}`}>{item.attributes.title}</p>
                         </div>
                     </div>
                 </Link>
