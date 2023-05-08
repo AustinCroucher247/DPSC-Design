@@ -37,6 +37,7 @@ import VanitiesProjects from "./components/vanities/vanitiesProjects";
 import FurnitureProjects from "./components/Furniture/funitureProjects";
 import WoodTurningProjects from "./components/woodTurning/woodTurningProjects";
 import EntertainmentProjects from "./components/entertainmentConsoles/entertainmentProjects";
+import MiscellaneousProjects from "./components/Miscellaneous/MiscellaneousProjects";
 
 
 function App() {
@@ -79,6 +80,8 @@ function App() {
 
           <Route path="/EntertainmentConsoles1" element={<Entertainment1 />} />
           <Route path="/Miscellaneous" element={<Miscellaneous />} />
+          <Route path="/Miscellaneous/:id" element={<MiscellaneousProjects />} />
+
           <Route path="/Miscellaneous1" element={<Miscellaneous1 />} />
           <Route path="/Miscellaneous2" element={<Miscellaneous2 />} />
 
