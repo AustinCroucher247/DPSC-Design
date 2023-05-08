@@ -41,23 +41,27 @@ function Body() {
     }, [currentImage, images]);
 
     return (
-        <div className='body'>
-            <div className='body--container'>
-                <p className='body--text'>Croucher Woodshop Creations</p>
-                <p className='body--text--italic'>Beautiful, Original Handmade Creations</p>
+        <>
+            <div className='body'>
+                <div>
+                    <div className='body--container'>
+                        <p className='body--text'>Croucher Woodshop Creations</p>
+                        <p className='body--text--italic'>Beautiful, Original Handmade Creations</p>
+                    </div>
+                    <div className='body--image--container'>
+                        {images.length > 0 && (
+                            <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
+                        )}
+                    </div>
+                </div>
+                <section className='card'>
+                    <Carousel images={carouselImages} />
+                </section>
+                <section className='history'>
+                </section>
             </div>
-            <div className='body--image--container'>
-                {images.length > 0 && (
-                    <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
-                )}
-            </div>
-            <section className='card'>
-                <Carousel images={carouselImages} />
-            </section>
-            <section className='history'>
-            </section>
             <Footer />
-        </div>
+        </>
     );
 }
 
