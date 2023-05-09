@@ -1,7 +1,17 @@
+@use "../../partials/global" as *;
+@use "../../partials/variables" as *;
+@use "../../partials/font" as *;
+@use "../../partials/mixin" as *;
+
+
 .builtins--container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     margin: 0 auto;
     width: 72%;
+
+    @include desktop {
+        align-items: center;
+    }
 }

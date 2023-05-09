@@ -1,3 +1,6 @@
+@use "../partials/mixin" as *;
+
+
 * {
     font-family: raleway;
 
@@ -10,6 +13,10 @@ body {
 .dynamic-image {
     width: 150px;
     padding-bottom: 1rem;
+
+    @include desktop {
+        width: 500px;
+    }
 }
 
 .dynamic--container {
@@ -17,4 +24,16 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+h3 {
+    @include desktop {
+        font-size: 2rem;
+    }
+}
+
+h1 {
+    @include desktop {
+        text-align: center;
+    }
 }
