@@ -77,12 +77,12 @@ const Carousel = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch("http://croucher-woodshop-final.herokuapp.com/api/carousel-images?populate=*");
+                const response = await fetch("https://croucher-woodshop-final.herokuapp.com/api/carousel-images?populate=*");
                 const data = await response.json();
                 console.log("Carousel Images API response:", data)
                 const carouselImages = data.data.map((item) => ({
                     ...item.attributes,
-                    src: `http://croucher-woodshop-final.herokuapp.com${item.attributes.Image.data.attributes.url}`,
+                    src: `https://croucher-woodshop-final.herokuapp.com${item.attributes.Image.data.attributes.url}`,
                     to: item.attributes.Link,
                 }))
                 setImages(carouselImages);
