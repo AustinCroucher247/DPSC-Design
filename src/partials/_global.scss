@@ -37,3 +37,9 @@ h1 {
         text-align: center;
     }
 }
+
+.vanity--image1 {
+    @include desktop {
+        cursor: pointer;
+    }
+}

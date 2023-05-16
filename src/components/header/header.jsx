@@ -7,7 +7,9 @@ function Header() {
     return (
         <div className='header'>
             <div className='header--container'>
-                <img className='logo' src={Logo} alt="" />
+                <a className='logo--container' href="/">
+                    <img className='logo' src={Logo} alt="" />
+                </a>
                 {/* <p className='header--title'>Croucher Woodshop</p> */}
             </div>
             <section className='nav'>

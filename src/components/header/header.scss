@@ -119,3 +119,23 @@ a {
 .nav--list a:active {
     font-weight: bold;
 }
+
+.logo--container {
+    height: 8rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid black;
+    width: 80%;
+    margin: 0 auto;
+    font-family: raleway;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+
+    @include desktop {
+        margin: 0;
+        justify-content: initial;
+        border: none;
+        width: 27%;
+
+    }
+}

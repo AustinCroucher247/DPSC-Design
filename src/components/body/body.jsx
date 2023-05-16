@@ -7,16 +7,17 @@ import axios from 'axios';
 
 function Body() {
     const [images, setImages] = useState([]);
+    // eslint-disable-next-line
     const [carouselImages, setCarouselImages] = useState([]);
 
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const bodyImagesResponse = await axios.get('http://localhost:1337/api/body-images?populate=*');
+                const bodyImagesResponse = await axios.get('https://croucher-woodshop-final.herokuapp.com/api/body-images?populate=*');
                 const bodyImagesData = bodyImagesResponse.data.data;
                 console.log("Body Images API response:", bodyImagesData);
 
-                const imageUrls = bodyImagesData.map(imgData => imgData.attributes.image.data[0].attributes.url);
+                const imageUrls = bodyImagesData.map(imgData => imgData.attributes.image.data.attributes.url);
                 setImages(imageUrls);
 
             } catch (error) {
@@ -25,6 +26,7 @@ function Body() {
         };
 
         fetchImages();
+        // eslint-disable-next-line
     }, []);
 
     const [currentImage, setCurrentImage] = useState(0);
@@ -50,7 +52,7 @@ function Body() {
                     </div>
                     <div className='body--image--container'>
                         {images.length > 0 && (
-                            <img className='body--image' src={`http://localhost:1337${images[currentImage]}`} alt="" />
+                            <img className='body--image' src={`http://croucher-woodshop-final.herokuapp.com${images[currentImage]}`} alt="" />
                         )}
                     </div>
                 </div>

@@ -77,14 +77,14 @@ const Carousel = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await fetch("http://localhost:1337/api/carousel-images?populate=*");
+                const response = await fetch("http://croucher-woodshop-final.herokuapp.com/api/carousel-images?populate=*");
                 const data = await response.json();
                 console.log("Carousel Images API response:", data)
                 const carouselImages = data.data.map((item) => ({
                     ...item.attributes,
-                    src: `http://localhost:1337${item.attributes.CarouselImage.data.attributes.url}`,
-                    to: item.attributes.link,
-                }));
+                    src: `http://croucher-woodshop-final.herokuapp.com${item.attributes.Image.data.attributes.url}`,
+                    to: item.attributes.Link,
+                }))
                 setImages(carouselImages);
             } catch (error) {
                 console.error("Error fetching carousel images:", error);
@@ -117,7 +117,7 @@ const Carousel = () => {
                 <Link key={index} to={image.to}>
                     <div className={index % 2 === 0 ? "card1" : "card2"}>
                         <img className="card--img" src={image.src} alt={image.alt} />
-                        <p>{image.title}</p>
+                        <p>{image.Title}</p>
                     </div>
                 </Link>
             ))}

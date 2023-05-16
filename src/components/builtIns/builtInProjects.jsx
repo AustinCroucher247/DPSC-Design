@@ -11,7 +11,7 @@ function BuiltInProjects() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`http://localhost:1337/api/built-ins?populate=*&id=${id}`);
+                const response = await axios.get(`http://croucher-woodshop-final.herokuapp.com/api/built-ins?populate=*&id=${id}`);
                 setProject(response.data.data.find(p => p.id === parseInt(id)));
             } catch (error) {
                 console.error('Error fetching project:', error);
@@ -20,11 +20,11 @@ function BuiltInProjects() {
 
         fetchProject();
     }, [id]);
-
+    // eslint-disable-next-line
     const openImageModal = (image) => {
         setSelectedImage(image);
     };
-
+    // eslint-disable-next-line
     const closeModal = () => {
         setSelectedImage(null);
     };
@@ -39,7 +39,7 @@ function BuiltInProjects() {
             <div className="builtins--container">
                 {project.attributes.Images.data &&
                     project.attributes.Images.data.map((image, index) => {
-                        const imageUrl = `http://localhost:1337${image.attributes.url}`;
+                        const imageUrl = `http://croucher-woodshop-final.herokuapp.com${image.attributes.url}`;
                         return (
                             <img
                                 key={index}
