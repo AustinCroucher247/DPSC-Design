@@ -11,8 +11,13 @@ function FurnitureProjects() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`http://localhost:1337/api/furnitures?populate=*&id=${id}`);
-                setProject(response.data.data.find(p => p.id === parseInt(id)));
+                const response = await axios.get(`https://croucher-woodshop-final.herokuapp.com/api/furnitures?populate=*&id=${id}`);
+                const projectData = response.data.data.find(p => p.id === parseInt(id));
+                const formattedImages = projectData.attributes.Images.data.map((image) => ({
+                    ...image.attributes,
+                    url: `https://croucher-woodshop-final.herokuapp.com${image.attributes.url}`,
+                }));
+                setProject({ ...projectData, attributes: { ...projectData.attributes, Images: { data: formattedImages } } });
             } catch (error) {
                 console.error('Error fetching project:', error);
             }
@@ -39,14 +44,13 @@ function FurnitureProjects() {
             <div className="builtins--container">
                 {project.attributes.Images.data &&
                     project.attributes.Images.data.map((image, index) => {
-                        const imageUrl = `http://localhost:1337${image.attributes.url}`;
                         return (
                             <img
                                 key={index}
                                 className="vanity--image1"
-                                src={imageUrl}
-                                alt={image.attributes.alternativeText}
-                                onClick={() => setSelectedImage(imageUrl)}
+                                src={image.url}
+                                alt={image.alternativeText}
+                                onClick={() => setSelectedImage(image.url)}
                             />
                         );
                     })}

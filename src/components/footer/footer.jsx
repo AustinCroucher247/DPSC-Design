@@ -7,7 +7,7 @@ function Footer() {
             <div>
                 <p className='contact--text'>Contact Me</p>
             </div>
-            <form action="https://formsubmit.co/dylan.croucher@gmail.com" method="POST" id="contact-form">
+            <form action="https://formsubmit.co/6c566fb1ae6716e731d333ae9124034d" method="POST" id="contact-form">
                 <label htmlFor="name">Name:</label>
                 <input type="text" id="name" name="name" required />
 

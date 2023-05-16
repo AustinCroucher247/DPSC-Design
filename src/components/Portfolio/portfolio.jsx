@@ -11,9 +11,15 @@ function Portfolio() {
     useEffect(() => {
         const fetchPortfolioItems = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/api/portfolio-images?populate=*');
-                setPortfolioItems(response.data.data);
-                console.log(response)
+                const response = await axios.get('https://croucher-woodshop-final.herokuapp.com/api/carousel-images?populate=*');
+                const data = response.data.data;
+                console.log("Portfolio items API response:", data);
+                const formattedItems = data.map((item) => ({
+                    ...item.attributes,
+                    src: `https://croucher-woodshop-final.herokuapp.com${item.attributes.Image.data.attributes.url}`,
+                    to: item.attributes.Link,
+                }));
+                setPortfolioItems(formattedItems);
             } catch (error) {
                 console.error('Error fetching portfolio items:', error);
             }
@@ -24,14 +30,14 @@ function Portfolio() {
 
     return (
         <div className="cards-list">
-            {portfolioItems.map((item, index) => (
-                <Link to={item.attributes.link} key={index}>
-                    <div className={`card10 ${item.attributes.classSuffix}`}>
+            {Array.isArray(portfolioItems) && portfolioItems.map((item, index) => (
+                <Link to={item.to} key={index}>
+                    <div className={`card10 ${item.classSuffix}`}>
                         <div className="card_image">
-                            <img src={`http://localhost:1337${item.attributes.image.data.attributes.url}`} alt={item.attributes.title} />
+                            <img src={item.src} alt={item.Title} />
                         </div>
-                        <div className={`card_title ${item.attributes.titleClass}`}>
-                            <p className={`card--overlay--text card1 ${item.attributes.marginClass}`}>{item.attributes.title}</p>
+                        <div className={`card_title ${item.titleClass}`}>
+                            <p className={`card--overlay--text card1 ${item.marginClass}`}>{item.Title}</p>
                         </div>
                     </div>
                 </Link>
