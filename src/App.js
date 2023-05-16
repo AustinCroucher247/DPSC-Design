@@ -22,7 +22,6 @@ import Furniture2 from "./components/Furniture/furniture2";
 import Furniture3 from "./components/Furniture/furniture3";
 import Furniture4 from "./components/Furniture/furniture4";
 import WallCoverings from "./components/wallCoverings/wallCoverings";
-import WallCoverings1 from "./components/wallCoverings/wallCoverings1";
 import WoodTurning from "./components/woodTurning/woodTurning";
 import WoodTurning1 from "./components/woodTurning/woodTurning1";
 import Entertainment from "./components/entertainmentConsoles/entertainment";

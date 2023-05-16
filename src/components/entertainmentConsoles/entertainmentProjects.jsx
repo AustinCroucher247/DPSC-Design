@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Modal from 'react-modal';
 
 
 function EntertainmentProjects() {
@@ -21,11 +20,11 @@ function EntertainmentProjects() {
 
         fetchProject();
     }, [id]);
-
+    // eslint-disable-next-line
     const openImageModal = (image) => {
         setSelectedImage(image);
     };
-
+    // eslint-disable-next-line
     const closeModal = () => {
         setSelectedImage(null);
     };

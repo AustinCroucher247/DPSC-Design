@@ -21,11 +21,11 @@ function WallCoveringProject() {
 
         fetchProject();
     }, [id]);
-
+    // eslint-disable-next-line
     const openImageModal = (image) => {
         setSelectedImage(image);
     };
-
+    // eslint-disable-next-line
     const closeModal = () => {
         setSelectedImage(null);
     };

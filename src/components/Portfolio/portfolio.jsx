@@ -1,14 +1,4 @@
 import './portfolio.scss'
-import ImgSet17 from '../../assets/ImgSet17.jpeg'
-import ImgSet15 from '../../assets/ImgSet15.jpeg'
-import ImgSet9p4 from '../../assets/ImgSet9-4.jpeg'
-import ImgSet6p1 from '../../assets/ImgSet6.jpeg'
-import ImgSet4 from '../../assets/ImgSet4.jpeg'
-import ImgSet8 from '../../assets/ImgSet8.jpeg'
-import ImgSet3 from '../../assets/ImgSet3.jpeg'
-
-import ImgSet2 from '../../assets/ImgSet2.jpeg'
-
 import { Link } from 'react-router-dom'
 
 
