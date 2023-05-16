@@ -8,7 +8,7 @@ function WoodTurning() {
     useEffect(() => {
         const fetchProjects = async () => {
             try {
-                const response = await axios.get('http://localhost:1337/api/wood-turnings?populate=*');
+                const response = await axios.get('https://croucher-woodshop-final.herokuapp.com/api/wood-turnings?populate=*');
                 // Access the data array from the response object.
                 const projectsData = response.data.data;
                 setProjects(projectsData);
@@ -27,7 +27,7 @@ function WoodTurning() {
                     <h3>{project.attributes.Title}</h3>
                     <Link to={`/WoodTurning/${project.id}`}>
                         <div className="dynamic-image">
-                            <img className="dynamic-image" src={`http://localhost:1337${project.attributes.Thumbnail.data.attributes.url}`} alt={project.attributes.Title} />
+                            <img className="dynamic-image" src={`https://croucher-woodshop-final.herokuapp.com${project.attributes.Thumbnail.data.attributes.url}`} alt={project.attributes.Title} />
                         </div>
                     </Link>
                 </div>

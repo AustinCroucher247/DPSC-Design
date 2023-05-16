@@ -11,7 +11,7 @@ function WoodTurningProjects() {
     useEffect(() => {
         const fetchProject = async () => {
             try {
-                const response = await axios.get(`http://localhost:1337/api/wood-turnings?populate=*&id=${id}`);
+                const response = await axios.get(`https://croucher-woodshop-final.herokuapp.com/api/wood-turnings?populate=*&id=${id}`);
                 setProject(response.data.data.find(p => p.id === parseInt(id)));
             } catch (error) {
                 console.error('Error fetching project:', error);
@@ -39,7 +39,7 @@ function WoodTurningProjects() {
             <div className="builtins--container">
                 {project.attributes.Images.data &&
                     project.attributes.Images.data.map((image, index) => {
-                        const imageUrl = `http://localhost:1337${image.attributes.url}`;
+                        const imageUrl = `https://croucher-woodshop-final.herokuapp.com${image.attributes.url}`;
                         return (
                             <img
                                 key={index}
